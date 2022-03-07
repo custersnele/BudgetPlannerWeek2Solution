@@ -12,8 +12,8 @@ public class MonthlyReportInformation {
 	private String fullName;
 	private Month month;
 	private int year;
-	private List<be.pxl.paj.budgetplanner.Transaction> incoming;
-	private List<be.pxl.paj.budgetplanner.Transaction> outgoing;
+	private List<Transaction> incoming;
+	private List<Transaction> outgoing;
 
 	public String getFullName() {
 		return fullName;
@@ -39,24 +39,24 @@ public class MonthlyReportInformation {
 		this.year = year;
 	}
 
-	public List<be.pxl.paj.budgetplanner.Transaction> getIncoming() {
+	public List<Transaction> getIncoming() {
 		return incoming;
 	}
 
-	public void setIncoming(List<be.pxl.paj.budgetplanner.Transaction> incoming) {
+	public void setIncoming(List<Transaction> incoming) {
 		this.incoming = incoming;
 	}
 
-	public List<be.pxl.paj.budgetplanner.Transaction> getOutgoing() {
+	public List<Transaction> getOutgoing() {
 		return outgoing;
 	}
 
-	public void setOutgoing(List<be.pxl.paj.budgetplanner.Transaction> outgoing) {
+	public void setOutgoing(List<Transaction> outgoing) {
 		this.outgoing = outgoing;
 	}
 
 	public double getTotalIncoming() {
-		return incoming.stream().mapToDouble(be.pxl.paj.budgetplanner.Transaction::getAmount).sum();
+		return incoming.stream().mapToDouble(Transaction::getAmount).sum();
 	}
 
 	public double getTotalOutgoing() {
