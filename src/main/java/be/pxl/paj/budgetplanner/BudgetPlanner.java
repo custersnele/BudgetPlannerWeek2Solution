@@ -14,7 +14,7 @@ public class BudgetPlanner {
 
 	public static void main(String[] args) {
 		if (args.length != 3) {
-			System.out.println("Arguments expected: path month year");
+			LOGGER.error("Arguments expected: path month year");
 			LOGGER.error("Arguments not correct.");
 			System.exit(-1);
 		}
@@ -37,7 +37,7 @@ public class BudgetPlanner {
 			monthlyReportInformation.setYear(year);
 			monthlyReportInformation.setIncoming(account.getIncome(monthOfYear, year));
 			monthlyReportInformation.setOutgoing(account.getExpenses(monthOfYear, year));
-			String filename = account.getFullName() + "_" + month + "_" + year + ".pdf";
+			String filename = "reports/" + account.getFullName() + "_" + month + "_" + year + ".pdf";
 			MontlyReportPdfWriter.createAndSaveDocument(monthlyReportInformation, Path.of(filename));
 		}
 	}

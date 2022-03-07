@@ -35,10 +35,10 @@ public class BudgetPlannerImporter {
 				try {
 					Account account = AccountMapper.map(line);
 					if (accounts.containsKey(account.getFullName())) {
-						accounts.get(account.getFullName()).addTransaction(TransactionMapper.map(line));
+						Transaction transaction = TransactionMapper.map(line);
+						accounts.get(account.getFullName()).addTransaction(transaction);
 					} else {
 						account.addTransaction(TransactionMapper.map(line));
-						accounts.put(account.getFullName(), account);
 						accounts.put(account.getFullName(), account);
 					}
 				} catch (InvalidTransactionException e) {
